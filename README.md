@@ -49,6 +49,18 @@ A template for creating Python libraries with modern tooling and best practices.
    uv run pre-commit install
    ```
 
+### Example Usage
+
+After customizing the template, users can import and use your library:
+
+```python
+from my_library import hello_world
+
+# Use the library
+result = hello_world("World")
+print(result)  # Output: Hello, World!
+```
+
 ## Development
 
 ### Code Quality
