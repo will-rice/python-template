@@ -1,6 +1,13 @@
-"""Dummy test."""
+"""Tests for my_library."""
+
+from my_library import hello_world
 
 
-def test_dummy() -> None:
-    """Dummy test."""
-    assert True
+def test_hello_world_default() -> None:
+    """Test hello_world with default parameter."""
+    assert hello_world() == "Hello, World!"
+
+
+def test_hello_world_custom_name() -> None:
+    """Test hello_world with custom name."""
+    assert hello_world("Python") == "Hello, Python!"

@@ -1,7 +1,17 @@
+# Optional Dockerfile for library development
+# This can be used for containerized development or CI/CD
+
 FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim
 
-WORKDIR /app
+WORKDIR /workspace
 
-COPY . /app
+# Copy project files
+COPY pyproject.toml uv.lock ./
+COPY src/ ./src/
+COPY tests/ ./tests/
 
-CMD ["uv", "run", "app"]
+# Install dependencies
+RUN uv sync
+
+# Default command runs tests
+CMD ["uv", "run", "pytest"]

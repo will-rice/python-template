@@ -1,6 +1,10 @@
+# Optional Docker Compose for library development
+# Usage: docker-compose run --rm library-dev
+
 services:
-  api:
-    container_name: api
+  library-dev:
+    container_name: library-dev
     build: .
-    ports:
-      - "7860:80"
+    volumes:
+      - .:/workspace
+    command: uv run pytest

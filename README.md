@@ -1,51 +1,59 @@
-# App Template
+# Python Library Template
 
-A Python application template built with Gradio for quick web app development.
+A template for creating Python libraries with modern tooling and best practices.
 
 ## Features
 
 - 🐍 Python 3.11+ support
-- 🎨 Gradio web interface
-- 🐳 Docker containerization
 - 🧹 Code quality tools (Ruff, MyPy, pre-commit)
 - 🧪 Testing with pytest
-- 📦 Modern Python packaging with uv
+- 📦 Modern Python packaging with uv and hatchling
+- 🔧 Pre-configured development environment
+- 📝 Google-style docstrings
 
 ## Quick Start
 
+### Using This Template
+
+1. **Click "Use this template"** on GitHub to create your own repository
+2. **Clone your new repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/your-library-name.git
+   cd your-library-name
+   ```
+
+3. **Customize the template:**
+   - Rename `src/my_library` to `src/your_library_name`
+   - Update `pyproject.toml` with your project details (name, description, author)
+   - Update `tool.ruff.lint.isort.known-first-party` in `pyproject.toml`
+   - Update this README with your project information
+
 ### Local Development
 
-1. **Install dependencies:**
+1. **Install uv (if not already installed):**
+
+   ```bash
+   pip install uv
+   ```
+
+2. **Install dependencies:**
 
    ```bash
    uv sync
    ```
 
-2. **Run the application:**
+3. **Install pre-commit hooks:**
 
    ```bash
-   uv run app
+   uv run pre-commit install
    ```
-
-3. **Access the app:**
-   Open your browser to `http://localhost:80`
-
-### Docker
-
-1. **Build and run with Docker Compose:**
-
-   ```bash
-   docker-compose up --build
-   ```
-
-2. **Access the app:**
-   Open your browser to `http://localhost:7860`
 
 ## Development
 
 ### Code Quality
 
-This project uses several tools to maintain code quality:
+This template includes several tools to maintain code quality:
 
 - **Ruff**: Fast Python linter and formatter
 - **MyPy**: Static type checking
@@ -61,8 +69,14 @@ uv run pytest
 ### Linting and Formatting
 
 ```bash
+# Check for issues
 uv run ruff check
+
+# Format code
 uv run ruff format
+
+# Fix auto-fixable issues
+uv run ruff check --fix
 ```
 
 ### Type Checking
@@ -71,27 +85,63 @@ uv run ruff format
 uv run mypy src/
 ```
 
+### Pre-commit Hooks
+
+Pre-commit hooks run automatically on `git commit`. To run manually:
+
+```bash
+uv run pre-commit run --all-files
+```
+
 ## Project Structure
 
 ```
-app-template/
-├── src/app/           # Main application code
+python-library-template/
+├── src/my_library/    # Main library code
+│   ├── __init__.py    # Package initialization
+│   └── core.py        # Core functionality
 ├── tests/             # Test files
-├── dockerfile         # Docker configuration
-├── docker-compose.yml # Docker Compose setup
-├── pyproject.toml     # Project configuration
+│   └── test_dummy.py  # Example tests
+├── pyproject.toml     # Project configuration and dependencies
+├── .pre-commit-config.yaml  # Pre-commit hooks configuration
+├── .gitignore         # Git ignore patterns
 └── README.md          # This file
 ```
 
 ## Configuration
 
-The application is configured through `pyproject.toml`, which includes:
+The project is configured through `pyproject.toml`, which includes:
 
 - Project metadata and dependencies
-- Ruff linting rules
+- Ruff linting rules (following Google docstring convention)
 - MyPy type checking settings
 - pytest configuration
 
+### Key Configuration Choices
+
+- **Python version**: 3.11+ (configurable in `pyproject.toml`)
+- **Docstring style**: Google format (enforced by Ruff)
+- **Build backend**: Hatchling (modern, zero-config build system)
+- **Package manager**: uv (fast, reliable dependency management)
+
+## Building and Publishing
+
+### Build the package
+
+```bash
+uv build
+```
+
+### Publish to PyPI
+
+```bash
+# Test PyPI
+uv publish --index-url https://test.pypi.org/simple/
+
+# Production PyPI
+uv publish
+```
+
 ## License
 
-This project is licensed under the terms specified in the LICENSE file.
+This project is licensed under the Apache License 2.0 - see the LICENSE file for details.
