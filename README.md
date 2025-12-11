@@ -7,7 +7,7 @@ A template for creating Python libraries with modern tooling and best practices.
 - 🐍 Python 3.11+ support
 - 🧹 Code quality tools (Ruff, MyPy, pre-commit)
 - 🧪 Testing with pytest
-- 📦 Modern Python packaging with uv and hatchling
+- 📦 Modern Python packaging with uv
 - 🔧 Pre-configured development environment
 - 📝 Google-style docstrings
 
@@ -24,9 +24,9 @@ A template for creating Python libraries with modern tooling and best practices.
    ```
 
 3. **Customize the template:**
-   - Rename `src/my_library` to `src/your_library_name`
+   - Rename `src/template` to `src/your_library_name`
    - Update `pyproject.toml` with your project details (name, description, author)
-   - Update `tool.ruff.lint.isort.known-first-party` in `pyproject.toml`
+   - Update `tool.ruff.lint.isort.known-first-party` and `tool.uv.build-backend.module-name` in `pyproject.toml`
    - Update this README with your project information
 
 ### Local Development
@@ -54,7 +54,7 @@ A template for creating Python libraries with modern tooling and best practices.
 After customizing the template, users can import and use your library:
 
 ```python
-from my_library import hello_world
+from template import hello_world
 
 # Use the library
 result = hello_world("World")
@@ -109,7 +109,7 @@ uv run pre-commit run --all-files
 
 ```
 python-library-template/
-├── src/my_library/    # Main library code
+├── src/template/      # Main library code
 │   ├── __init__.py    # Package initialization
 │   └── core.py        # Core functionality
 ├── tests/             # Test files
@@ -133,7 +133,7 @@ The project is configured through `pyproject.toml`, which includes:
 
 - **Python version**: 3.11+ (configurable in `pyproject.toml`)
 - **Docstring style**: Google format (enforced by Ruff)
-- **Build backend**: Hatchling (modern, zero-config build system)
+- **Build backend**: uv_build (integrated with uv package manager)
 - **Package manager**: uv (fast, reliable dependency management)
 
 ## Building and Publishing

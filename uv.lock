@@ -120,30 +120,6 @@ wheels = [
 ]
 
 [[package]]
-name = "my-library"
-version = "0.1.0"
-source = { editable = "." }
-
-[package.optional-dependencies]
-dev = [
-    { name = "mypy" },
-    { name = "pre-commit" },
-    { name = "pydocstyle" },
-    { name = "pytest" },
-    { name = "ruff" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.15.0" },
-    { name = "pre-commit", marker = "extra == 'dev'", specifier = ">=4.1.0" },
-    { name = "pydocstyle", marker = "extra == 'dev'", specifier = ">=6.3.0" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.3.4" },
-    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.9.7" },
-]
-provides-extras = ["dev"]
-
-[[package]]
 name = "mypy"
 version = "1.19.0"
 source = { registry = "https://pypi.org/simple" }
@@ -378,6 +354,30 @@ sdist = { url = "https://files.pythonhosted.org/packages/75/a7/9810d872919697c9d
 wheels = [
     { url = "https://files.pythonhosted.org/packages/c8/78/3565d011c61f5a43488987ee32b6f3f656e7f107ac2782dd57bdd7d91d9a/snowballstemmer-3.0.1-py3-none-any.whl", hash = "sha256:6cd7b3897da8d6c9ffb968a6781fa6532dce9c3618a4b127d920dab764a19064", size = 103274, upload-time = "2025-05-09T16:34:50.371Z" },
 ]
+
+[[package]]
+name = "template"
+version = "0.1.0"
+source = { editable = "." }
+
+[package.optional-dependencies]
+dev = [
+    { name = "mypy" },
+    { name = "pre-commit" },
+    { name = "pydocstyle" },
+    { name = "pytest" },
+    { name = "ruff" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.15.0" },
+    { name = "pre-commit", marker = "extra == 'dev'", specifier = ">=4.1.0" },
+    { name = "pydocstyle", marker = "extra == 'dev'", specifier = ">=6.3.0" },
+    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.3.4" },
+    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.9.7" },
+]
+provides-extras = ["dev"]
 
 [[package]]
 name = "typing-extensions"

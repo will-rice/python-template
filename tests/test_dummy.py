@@ -1,6 +1,6 @@
-"""Tests for my_library."""
+"""Tests for template."""
 
-from my_library import hello_world
+from template import hello_world
 
 
 def test_hello_world_default() -> None:
