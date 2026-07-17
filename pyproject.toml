@@ -1,34 +1,31 @@
 [project]
-name = "app"
+name = "template"
 version = "0.1.0"
-description = "A app template."
+description = "A general Python project template."
 readme = "README.md"
-authors = [
-    { name = "Will Rice", email = "wrice20@gmail.com" }
-]
-requires-python = ">=3.11"
+authors = [{ name = "Will Rice", email = "wrice20@gmail.com" }]
+requires-python = ">=3.12"
 dependencies = [
-    "gradio>=5.46.0",
-    "mypy>=1.15.0",
     "pre-commit>=4.1.0",
     "pydocstyle>=6.3.0",
     "pytest>=8.3.4",
     "python-dotenv>=1.1.1",
     "ruff>=0.9.7",
+    "ty>=0.0.18",
 ]
 
 [build-system]
-requires = ["uv_build>=0.8.9,<0.9.0"]
+requires = ["uv_build>=0.9.2"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
-module-name = ["app"]
+module-name = ["template"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["app"]
+known-first-party = ["template"]
 
 [tool.ruff.lint]
-select = ["C", "E", "F", "I", "W", "D", "N", "B"]
+select = ["C", "E", "F", "I", "W", "D", "N", "B", "PTH", "ANN"]
 ignore = ["D107"]
 exclude = [".venv"]
 
@@ -36,14 +33,4 @@ exclude = [".venv"]
 convention = "google"
 
 [tool.pytest.ini_options]
-filterwarnings = [
-    "ignore::DeprecationWarning",
-]
-
-[tool.mypy]
-ignore_missing_imports = true
-follow_imports_for_stubs = true
-exclude = [".venv"]
-
-[project.scripts]
-app = "app.app:main"
+filterwarnings = ["ignore::DeprecationWarning"]

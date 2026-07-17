@@ -1,56 +1,55 @@
-# App Template
+# Python Template
 
-A Python application template built with Gradio for quick web app development.
+A general Python project template with modern tooling.
 
 ## Features
 
-- 🐍 Python 3.11+ support
-- 🎨 Gradio web interface
-- 🐳 Docker containerization
-- 🧹 Code quality tools (Ruff, MyPy, pre-commit)
+- 🐍 Python 3.12+ support
+- 🧹 Code quality tools (Ruff, ty, pre-commit)
 - 🧪 Testing with pytest
 - 📦 Modern Python packaging with uv
 
 ## Quick Start
 
-### Local Development
+### 1. Install uv
 
-1. **Install dependencies:**
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
 
+### 2. Use this template for a new project
+
+When creating a new project from this template:
+
+1. Clone or fork this repository
+2. Rename the `src/template` directory to your project name:
    ```bash
-   uv sync
+   mv src/template src/your_project_name
    ```
+3. Update `pyproject.toml`:
+   - Change `name = "template"` to your project name
+   - Update `module-name = ["template"]` to your project name
+4. Update import statements in Python files to use your new project name
 
-2. **Run the application:**
+### 3. Install dependencies
 
-   ```bash
-   uv run app
-   ```
+```bash
+uv sync
+```
 
-3. **Access the app:**
-   Open your browser to `http://localhost:80`
+### 4. Set up environment variables
 
-### Docker
+```bash
+cp .env.example .env
+```
 
-1. **Build and run with Docker Compose:**
+### 5. Install pre-commit hooks
 
-   ```bash
-   docker-compose up --build
-   ```
-
-2. **Access the app:**
-   Open your browser to `http://localhost:7860`
+```bash
+uv run pre-commit install
+```
 
 ## Development
-
-### Code Quality
-
-This project uses several tools to maintain code quality:
-
-- **Ruff**: Fast Python linter and formatter
-- **MyPy**: Static type checking
-- **pytest**: Testing framework
-- **pre-commit**: Git hooks for automated checks
 
 ### Running Tests
 
@@ -61,37 +60,36 @@ uv run pytest
 ### Linting and Formatting
 
 ```bash
-uv run ruff check
-uv run ruff format
+uv run ruff check src/
+uv run ruff format src/
 ```
 
 ### Type Checking
 
 ```bash
-uv run mypy src/
+uv run ty check
+```
+
+### Pre-commit Hooks
+
+Pre-commit hooks will automatically run on every commit to ensure code quality. To run manually:
+
+```bash
+uv run pre-commit run --all-files
 ```
 
 ## Project Structure
 
 ```
-app-template/
-├── src/app/           # Main application code
+python-template/
+├── src/template/      # Main package code
 ├── tests/             # Test files
-├── dockerfile         # Docker configuration
-├── docker-compose.yml # Docker Compose setup
 ├── pyproject.toml     # Project configuration
+├── .pre-commit-config.yaml  # Pre-commit hooks
 └── README.md          # This file
 ```
 
-## Configuration
-
-The application is configured through `pyproject.toml`, which includes:
-
-- Project metadata and dependencies
-- Ruff linting rules
-- MyPy type checking settings
-- pytest configuration
-
 ## License
 
-This project is licensed under the terms specified in the LICENSE file.
+See [LICENSE](LICENSE) file for details.
+
