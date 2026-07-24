@@ -13,5 +13,6 @@ jobs:
         with:
           python-version: "3.x"
       - uses: astral-sh/setup-uv@v6
+      - run: npm install -g prettier-plugin-toml
       - run: uv sync
       - run: uv run pre-commit run -a
