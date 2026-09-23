@@ -4,7 +4,7 @@ A general Python project template with modern tooling.
 
 ## Features
 
-- 🐍 Python 3.12+ support
+- 🐍 Python 3.13+ support
 - 🧹 Code quality tools (Ruff, ty, pre-commit)
 - 🧪 Testing with pytest
 - 📦 Modern Python packaging with uv
@@ -92,4 +92,3 @@ python-template/
 ## License
 
 See [LICENSE](LICENSE) file for details.
-
